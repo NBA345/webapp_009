@@ -6,17 +6,17 @@ const path = require('path');
 // สร้าง Application ของ Express app จะเป็นตัวหลักในการจัดการเว็บ
 const app = express();
 // ไปดึงไฟล์ myRouter.js จากโฟลเดอร์ backend/routes
-const myRouter = require('./backend/routes/myRouter');
+const myRouter = require('./ฺฺBackend/routes/myRouter');
 // ใช้รับข้อมูลจาก Form เช่น input, username, password
 app.use(express.urlencoded({ extended: true }));
 // ใช้รับข้อมูลรูปแบบ JSON เหมาะสำหรับ API หรือ Frontend ส่งข้อมูลมา
 app.use(express.json());
 // กำหนดโฟลเดอร์ publicเพื่อให้สามารถเรียกใช้งานCSS, JavaScript, รูปภาพ ได้
-app.use(express.static(path.join(__dirname, 'frontend/public')));
+app.use(express.static(path.join(__dirname, 'Frontend/public')));
 // กำหนดให้ระบบใช้ EJSสำหรับสร้างหน้าเว็บ
 app.set('view engine', 'ejs');
 // กำหนดตำแหน่งเก็บไฟล์ .ejs ระบบจะไปหาไฟล์ใน frontend/views
-app.set('views',path.join(__dirname, 'frontend/views'));
+app.set('views',path.join(__dirname, 'Frontend/views'));
 // เชื่อม Router เข้ากับระบบ หมายถึงหน้าแรกของเว็บไซต์เมื่อมีการเปิด URL localhost:3000 ระบบจะไปทำงานที่ myRouter.js
 app.use('/', myRouter);
 // ==============================
